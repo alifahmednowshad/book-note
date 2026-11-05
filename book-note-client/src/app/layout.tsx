@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/shared/Navbar";
+import Footer from "@/components/shared/Footer";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -34,7 +36,11 @@ export default function RootLayout({
       data-theme="booknook"
       className={`${playfair.variable} ${inter.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+      <body className="min-h-full flex flex-col font-sans">
+        <Navbar />
+        {children}
+        <Footer/>
+      </body>
     </html>
   );
 }
